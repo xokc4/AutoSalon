@@ -1,0 +1,90 @@
+﻿<Window x:Class="Diplom_Chilikin.WPFWin.MainWpf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_Chilikin.WPFWin"
+        mc:Ignorable="d"
+        Title="MainWpf" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="337*"/>
+            <RowDefinition Height="45*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="219*"/>
+            <ColumnDefinition Width="181*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox   Grid.Row="1" Grid.Column="0" x:Name="lbServisAuto" Margin="0,1,8,12" MouseDoubleClick="lbServisAuto_MouseDoubleClick" >
+            <ListBox.ItemTemplate >
+                <DataTemplate >
+                    <Grid Margin="2,20,20,2 ">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition MinWidth="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border BorderThickness="1"
+                                Width="100" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" 
+                                >
+                            <Image Source="{Binding Image}"  />
+                        </Border>
+                        <TextBlock Grid.Row="0" Grid.Column="2"
+                                   Text="{Binding Stamp}" HorizontalAlignment="Left" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left">
+                           <Label Content="Цена:"/> 
+                           <Label Content="{Binding  Cost}"/>
+                            <Label Content=" Цвет:"/> 
+                           <Label Content= "{Binding Color}"/>
+                        </TextBlock>
+
+                        <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left">
+                           <Label Content="Комплектация:"/> 
+                           <Label Content="{Binding  Equipment}"/>
+                            <Label Content=" Привод:"/> 
+                           <Label Content= "{Binding Color}"/>
+                        </TextBlock>
+                        <Button Grid.Row="3" Grid.Column="2" Margin="10,0,10,0" x:Name="Bay" Content="Купить" Click="Bay_Click"></Button>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="60,0,0,0" TextWrapping="Wrap" x:Name="SearchText" VerticalAlignment="Center" Width="206" Height="26"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,21,0,0" TextWrapping="Wrap" Text="Поиск:" VerticalAlignment="Top" Height="26" Width="88"/>
+        <Button Grid.Column="1" Content="Добавить фильтры" x:Name="Filtr" Click="Filtr_Click" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="128" Height="20"/>
+
+        <TextBlock Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Left" x:Name="StampAutoTextBlok" Margin="10,62,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Марка:" VerticalAlignment="Top" Height="24" Width="71"/>
+        <ComboBox Grid.Column="1"  Visibility="Hidden" HorizontalAlignment="Left" x:Name="StampAuto" Margin="101,62,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,115,0,0" x:Name="EquipmentAutoTextBlok" Grid.Row="1" TextWrapping="Wrap" Text="Комплектация:" VerticalAlignment="Top" Height="24"  Visibility="Hidden" Width="100"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="101,111,0,0" x:Name="EquipmentAuto" Grid.Row="1" VerticalAlignment="Top" Width="120"  Visibility="Hidden" />
+
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,163,0,0" Grid.Row="1" x:Name="EngineAutoTextBlok" TextWrapping="Wrap" Text="Двигатель:" VerticalAlignment="Top" Height="24"  Visibility="Hidden" Width="100"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="101,159,0,0" Grid.Row="1" x:Name="EngineAuto" VerticalAlignment="Top" Width="120"  Visibility="Hidden" />
+
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" x:Name="ColorAutoTextBlok" Margin="10,218,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Цвет:" VerticalAlignment="Top" Height="24"  Visibility="Hidden" Width="100"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left"  x:Name="ColorAuto" Margin="101,215,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"  Visibility="Hidden"/>
+
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" x:Name="DriveAutoTextBlok" Margin="10,262,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Привод:" VerticalAlignment="Top" Height="24"  Visibility="Hidden" Width="100"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left"  x:Name="DriveAuto" Margin="101,263,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"  Visibility="Hidden"/>
+
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" x:Name="BoxAutoTextBlok" Margin="10,303,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Коробка:" VerticalAlignment="Top" Height="24"  Visibility="Hidden" Width="100"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left"  x:Name="BoxAuto" Margin="101,300,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"  Visibility="Hidden"/>
+        
+        <Button Grid.Column="1" Content="Найти" x:Name="ToFind" Click="ToFind_Click" HorizontalAlignment="Left" Margin="288,19,0,0" VerticalAlignment="Top" Width="64"/>
+
+        <Button Content="Добавить"  Visibility="Hidden" x:Name="AddAuto" Click="AddAuto_Click" HorizontalAlignment="Left" Margin="10,3,0,0" Grid.Row="2" VerticalAlignment="Top" Width="80"/>
+
+
+
+    </Grid>
+</Window>
