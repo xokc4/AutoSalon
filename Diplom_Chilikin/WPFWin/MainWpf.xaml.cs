@@ -63,26 +63,32 @@ namespace Diplom_Chilikin.WPFWin
             if (ColorAuto.SelectedItem != null)
             {
                 lbServisAuto.ItemsSource = context.Autos.Where(x => x.Color == ColorAuto.SelectedItem.ToString()).ToList();
+                ColorAuto.Text = "";
             }
             if (BoxAuto.SelectedItem != null)
             {
                 lbServisAuto.ItemsSource = context.Autos.Where(x => x.Box == BoxAuto.SelectedItem.ToString()).ToList();
+                BoxAuto.Text = "";
             }
             if (DriveAuto.SelectedItem != null)
             {
                 lbServisAuto.ItemsSource = context.Autos.Where(x => x.Drive == DriveAuto.SelectedItem.ToString()).ToList();
+                DriveAuto.Text = "";
             }
             if (StampAuto.SelectedItem != null)
             {
                 lbServisAuto.ItemsSource = context.Autos.Where(x => x.Stamp == StampAuto.SelectedItem.ToString()).ToList();
+                StampAuto.Text = "";
             }
             if (EngineAuto.SelectedItem != null)
             {
                 lbServisAuto.ItemsSource = context.Autos.Where(x => x.Engine == EngineAuto.SelectedItem.ToString()).ToList();
+                EngineAuto.Text = "";
             }
             if (EquipmentAuto.SelectedItem != null)
             {
                 lbServisAuto.ItemsSource = context.Autos.Where(x => x.Equipment == EquipmentAuto.SelectedItem.ToString()).ToList();
+                EquipmentAuto.Text = "";
             }
             //lbServisAuto.ItemsSource = context.Autos.Where(x => x.Stamp == SearchText.Text||x.Color== ColorAuto.SelectedItem.ToString() ||
             //    x.Drive==DriveAuto.SelectedItem.ToString() || x.Box == BoxAuto.SelectedItem.ToString() || x.Engine == EngineAuto.SelectedItem.ToString() || x.Equipment == EquipmentAuto.SelectedItem.ToString()
